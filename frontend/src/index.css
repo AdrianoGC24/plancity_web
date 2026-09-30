@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-dark-bg: #020617; /* slate-950 */
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 min-h-screen antialiased transition-colors duration-300;
+  }
+  
+  /* Optional subtle background pattern for dark mode */
+  .dark body {
+    background-image: radial-gradient(circle at top right, rgba(139, 92, 246, 0.08), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.08), transparent 40%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white dark:bg-slate-900/60 backdrop-blur-xl border border-slate-200 dark:border-slate-800 shadow-xl rounded-2xl;
+  }
+  
+  .glass-card {
+    @apply bg-white dark:bg-slate-900/80 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-lg shadow-slate-200/50 dark:shadow-none rounded-2xl hover:-translate-y-1 hover:shadow-violet-500/10 dark:hover:shadow-violet-500/20 transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply bg-violet-600 hover:bg-violet-700 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg shadow-violet-500/30 transition-all active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold py-2.5 px-6 rounded-xl transition-all active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500 transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500;
+  }
+}
